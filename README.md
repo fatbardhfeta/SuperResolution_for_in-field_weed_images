@@ -20,6 +20,7 @@ This is a repo for my thesis project "Zoom & Enhance: SuperResolution for in-fie
 
 First create a virtual enviroment, we use virtual enviroment wraper: 
 
+    source /usr/local/bin/virtualenvwrapper.sh
     mkvirtualenv segmentation-env
 
 

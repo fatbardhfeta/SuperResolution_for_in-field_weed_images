@@ -6,7 +6,7 @@ from pathlib import Path
 from EWISSeg.dataset import get_loader
 import segmentation_models_pytorch as smp
 batch_size = 50
-model_save_path = "inference/segmentation/models/model.pt"
+model_save_path = "/home/fatbardhf/data_code/models/model.h5"
 device = "cuda"
 data_path = Path("/home/fatbardhf/data_code/data/A_20210707/png_lenscor")	# change this folder
 save_path = Path("inference/segmentation/results") / "run_2"		# change this folder
