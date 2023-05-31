@@ -86,9 +86,11 @@ def main():
         hr_path = os.path.join(hr_seg_folder, hr_seg_image)
         temp = hr_seg_image.split('_')[2:]
         hr_image_name = f"{temp[0]}_{temp[1]}_{temp[2]}_{temp[3]}"  # Extract the image name from the HR segmentation file name
+        
         x2_image = f"model2021_2x_img_{hr_image_name}_pred.png"
         x3_image = f"model2021_3x_img_{hr_image_name}_pred.png"
         x4_image = f"model2021_4x_img_{hr_image_name}_pred.png"
+
         x2_path = os.path.join(x2_seg_folder, x2_image)
         x3_path = os.path.join(x3_seg_folder, x3_image)
         x4_path = os.path.join(x4_seg_folder, x4_image)
@@ -123,7 +125,7 @@ def main():
     
     #calculate recontruction ssim and psnr for downscaled images
     # Get the list of HR segmentation images
-    hr_images = sorted(os.listdir(hr_folder))
+    hr_images = sorted(os.listdir(hr_folder)[0:3])
 
     psnr_x2 = 0
     ssim_x2 = 0
@@ -153,14 +155,6 @@ def main():
         ssim_x3 += t_ssim_x3
         psnr_x4 += t_psnr_x4
         ssim_x4 += t_ssim_x4
-
-
-    psnr_x2 = psnr_x2/len(hr_images)
-    ssim_x2 = ssim_x2/len(hr_images)
-    psnr_x3 = psnr_x3/len(hr_images)
-    ssim_x3 = ssim_x3/len(hr_images)
-    psnr_x4 = psnr_x4/len(hr_images)
-    ssim_x4 = ssim_x4/len(hr_images)
 
 
     # Calculate average PSNR and SSIM values
