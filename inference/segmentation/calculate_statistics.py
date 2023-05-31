@@ -2,32 +2,58 @@ import os
 from PIL import Image
 import numpy as np
 from tqdm import tqdm
+import numpy as np
 
 from tabulate import tabulate
 from skimage.metrics import peak_signal_noise_ratio, structural_similarity
 
-
+# Segmentation files
 hr_seg_folder = "inference/segmentation/results/HR_segmentations"  # HR segmentation folder
 x2_seg_folder = "inference/segmentation/results/results_2x"  # 2x segmentation folder
 x3_seg_folder = "inference/segmentation/results/results_3x"  # 3x segmentation folder
 x4_seg_folder = "inference/segmentation/results/results_4x"  # 4x segmentation folder
 
-hr_folder = "/home/fatbardhf/data_code/data/A_20210707/png_lenscor"  # HR segmentation folder
-x2_folder = "/home/fatbardhf/bicubical_A_20210707/2x"  # 2x segmentation folder
-x3_folder = "/home/fatbardhf/bicubical_A_20210707/3x"  # 3x segmentation folder
-x4_folder = "/home/fatbardhf/bicubical_A_20210707/4x"
+# Downsampled files
+hr_folder = "/home/fatbardhf/data_code/data/A_20210707/png_lenscor"  # HR folder
+x2_folder = "/home/fatbardhf/bicubical_A_20210707/2x"  # 2x bicubivaly downsampled
+x3_folder = "/home/fatbardhf/bicubical_A_20210707/3x"  # 3x bicubivaly downsampled
+x4_folder = "/home/fatbardhf/bicubical_A_20210707/4x"  # 4x bicubivaly downsampled
 
+
+
+
+def substitute_colors(image):
+    '''
+    Substitutes specific RGB values in an image with new values.
+
+    Args:
+        image (numpy.ndarray): The input image.
+
+    Returns:
+        numpy.ndarray: The image with substituted colors.
+    '''
+    substitution_dict = {
+    (199, 199, 199): (1, 0, 0),
+    (31, 119, 180): (0, 1, 0),
+    (255, 127, 14): (0, 0, 1)
+}
+    result = np.copy(image)
+    for original_color, new_color in substitution_dict.items():
+        mask = np.all(result == original_color, axis=-1)
+        result[mask] = new_color
+    return result
 
 def compare_segmentations(hr_path, x2_path, x3_path, x4_path):
+    '''' Compare the images pixel wise'''
     hr_image = Image.open(hr_path)
     x2_image = Image.open(x2_path)
     x3_image = Image.open(x3_path)
     x4_image = Image.open(x4_path)
 
-    hr_pixels = np.array(hr_image)
-    x2_pixels = np.array(x2_image)
-    x3_pixels = np.array(x3_image)
-    x4_pixels = np.array(x4_image)
+    hr_pixels = substitute_colors(np.array(hr_image))
+    x2_pixels = substitute_colors(np.array(x2_image))
+    x3_pixels = substitute_colors(np.array(x3_image))
+    x4_pixels = substitute_colors(np.array(x4_image))
 
     class_errors_hr_x2 = np.sum(hr_pixels != x2_pixels, axis=(0, 1))
     class_errors_hr_x3 = np.sum(hr_pixels != x3_pixels, axis=(0, 1))
@@ -73,7 +99,6 @@ def main():
         class_errors_hr_x3_total += class_errors_hr_x3
         class_errors_hr_x4_total += class_errors_hr_x4
         total_pixels += total_pixels_img
-        break
 
     average_errors_hr_x2 = class_errors_hr_x2_total / total_pixels
     average_errors_hr_x3 = class_errors_hr_x3_total / total_pixels
@@ -87,7 +112,7 @@ def main():
     ]
 
     # Define the table headers
-    headers = ["Scale"] + [f"Channel {i+1}" for i in range(3)]
+    headers = ["Scale"] + [f"Class {i+1}" for i in range(3)]
 
     # Print the table
     table1 = tabulate(table_data, headers, tablefmt="grid")
@@ -118,7 +143,7 @@ def main():
         x3_path = os.path.join(x3_folder, x3_image)
         x4_path = os.path.join(x4_folder, x4_image)
 
-        t_psnr_x2, t_ssim_x2= calculate_psnr_ssim(hr_path, x2_path )
+        t_psnr_x2, t_ssim_x2= calculate_psnr_ssim(hr_path, x2_path)
         t_psnr_x3, t_ssim_x3= calculate_psnr_ssim(hr_path, x3_path)
         t_psnr_x4, t_ssim_x4= calculate_psnr_ssim(hr_path, x4_path)
 
@@ -128,8 +153,6 @@ def main():
         ssim_x3 += t_ssim_x3
         psnr_x4 += t_psnr_x4
         ssim_x4 += t_ssim_x4
-
-        break
 
 
     psnr_x2 = psnr_x2/len(hr_images)
@@ -169,18 +192,8 @@ def main():
         file.write("Average Class Errors:\n")
         file.write(table1)
 
-        file.write("\PSNR and SSIM:\n")
+        file.write("\nPSNR and SSIM:\n")
         file.write(table2)
-
-
-
-
-
-
-
-            
-
-        
 
 
 
