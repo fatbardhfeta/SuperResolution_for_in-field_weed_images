@@ -15,7 +15,7 @@ def scale_images(original_images_dir, scaling_factors, new_images_dir = "inferen
                        if filename.endswith(".jpg") or filename.endswith(".png")]
 
     # Iterate over original images with progress bar
-    for filename in tqdm(original_images, desc="Processing images", unit="image"):
+    for filename in tqdm(original_images, desc="Downsampling images", unit="image"):
         # Load the original image
         original_image_path = os.path.join(original_images_dir, filename)
         original_image = Image.open(original_image_path)
@@ -23,7 +23,6 @@ def scale_images(original_images_dir, scaling_factors, new_images_dir = "inferen
         for factor, new_images_factor_dir in zip(scaling_factors, new_images_dirs):
             # Calculate the scaling factor
             scale = int(factor.replace("x", ""))
-
             # Downscale the image
             downscaled_image = original_image.resize((original_image.width // scale, original_image.height // scale), Image.BICUBIC)
 
