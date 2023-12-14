@@ -52,14 +52,17 @@ Run this comand to install the application:
 python setup.py develop
 ```
 
+## Model weights
+To download the finetuned and default model weights go to this [link](https://drive.google.com/drive/folders/14K_3Xy3RmSgiwKjt9x8F296ro_QuJo3N?usp=sharing).
+
+
 ## How To Test
 - Refer to `./options/test` for the configuration file of the model to be tested, and prepare the testing data and pretrained model.  
 
-- The pretrained models are available at
+- The pretrained models are also available at
 [Google Drive](https://drive.google.com/drive/folders/1HpmReFfoUqUbnAOQ7rvOeNU3uf_m69w0?usp=sharing) or [Baidu Netdisk](https://pan.baidu.com/s/1u2r4Lc2_EEeQqra2-w85Xg) (access code: qyrl).  
-- For the finetuned weights contact fatabardh.feta@tum.de
 
-- Then run the follwing codes (taking `HAT_SRx4_ImageNet-pretrain.pth` as an example):
+- Then run the follwing command (taking `HAT_SRx4_ImageNet-pretrain.pth` as an example):
 ```
 python hat/test.py -opt options/test/HAT_SRx4_ImageNet-pretrain.yml
 ```
@@ -71,9 +74,9 @@ The testing results will be saved in the `./results` folder.
 
 ## How To Train
 - Refer to `./options/train` for the configuration file of the model to train.
-- Preparation of training data can refer to [this page](https://github.com/XPixelGroup/BasicSR/blob/master/docs/DatasetPreparation.md). ImageNet dataset can be downloaded at the [official website](https://image-net.org/challenges/LSVRC/2012/2012-downloads.php).
+- Preparation of training data can refer to [this page](https://github.com/XPixelGroup/BasicSR/blob/master/docs/DatasetPreparation.md). I
 
-- The training command is like
+- The training command can be like:
 ```
 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 python -m torch.distributed.launch --nproc_per_node=8 --master_port=4321 hat/train.py -opt options/train/train_HAT_SRx2_from_scratch.yml --launcher pytorch
 ```
