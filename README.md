@@ -25,7 +25,7 @@ The primary challenge addressed in this work is the efficient early-stage detect
 
 ## Code
 
-### Preparin Data
+### Prepare Data
 First, create a virtual environment using virtualenvwrapper:
 
 ```shell
