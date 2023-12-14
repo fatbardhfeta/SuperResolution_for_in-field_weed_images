@@ -131,5 +131,4 @@ More on the ML models used in this work, please refer to [this](./models/README.
 
 ## Online Resources
 
-In this work we have finetuned many networks and created a wide array of data. Since we can not put all of them in this repo, you can find them here:
-
+In this work, we have fine-tuned a variety of networks and generated a substantial amount of data. Due to size constraints, we cannot include all resources in this repository. However, they are available for download [here](https://drive.google.com/drive/folders/14K_3Xy3RmSgiwKjt9x8F296ro_QuJo3N?usp=sharing).
