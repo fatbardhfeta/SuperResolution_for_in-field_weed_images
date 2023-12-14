@@ -18,7 +18,7 @@ This repository contains three different image super-resolution models: SRCNN, H
 
 3. **real-SRGAN (Super-Resolution Generative Adversarial Network)**
 
-   - [real-SRGAN README](./real-srgan/README.md)
+   - [real-SRGAN README](./real-esrgan/README.md)
    - The real-SRGAN model represents the current state of the art in GAN-based generative models for super-resolution. It has achieved remarkable results in generating high-quality super-resolved images and is a leading model in the field.
 
 
