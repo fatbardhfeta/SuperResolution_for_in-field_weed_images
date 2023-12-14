@@ -8,7 +8,7 @@ This is a repo for my thesis project "Zoom & Enhance: SuperResolution for in-fie
     - [Problem definition](#problem-definition)
 
 - [Code](#code)
-    - [Preparin Data](#prepare_data)
+    - [Prepare Data](#prepare_data)
     - [Run Filtering Functions](#run-filtering-functions)
     - [Run segmentation](#run-segmentation)
     - [Run Inference](#run-inference)

@@ -47,7 +47,20 @@ To ensure your environment has all the necessary dependencies, refer to the `req
 
 ## Prepare Dataset
 
-To train and test your SRCNN model effectively, you may need to prepare a custom dataset. This process may involve data collection, preprocessing, and organization. You can use the provided `prepare.py` script to assist with this. Ensure that your custom dataset is appropriately structured and labeled. To use our dataset please conact us for the dataset files.
+To train and test your SRCNN model effectively, you may need to prepare a custom dataset. This process may involve data collection, preprocessing, and organization. You can use the provided `prepare.py` script to assist with this. Follow this comand style:
+
+```bash
+python prepare.py --images-dir /path/to/images --output-path /path/to/output --patch-size 33 --stride 14 --scale 2 --eval
+           
+```
+
+ Ensure that your custom dataset is appropriately structured and labeled. You will need two datastes, one for training and one for validation. We have provided the validation datasets [here](https://drive.google.com/drive/folders/1q47ysl8_aF6E_XRFb9b4RjDnefursgkq?usp=sharing). The training datasets are quite large so we have provided only the dataset for the x2 scaling factor. 
+
+
+
+## Finetuned and default weights
+
+To download the finetuned and default model weights go to this [link](https://drive.google.com/drive/folders/14K_3Xy3RmSgiwKjt9x8F296ro_QuJo3N?usp=sharing).
 
 ## Training
 
@@ -61,9 +74,12 @@ python train.py --train-file "A_20210707_x2.h5" --eval-file "eval_A_20210707_x2.
 To train models for the 4x or the 8x task change the dataset and scale factor above.
 
 ## Test
-To test the srcnn model, use the following comand:
+To test the srcnn model, use a comand similar to this:
 ```bash
-python test.py --weights-file "/home/fatbardhf/thesis/SRCNN-pytorch/outputs/x2/best.pth" --image-dir "/home/fatbardhf/segmentation_evaluation_data_folder/6m_baseline/results_srcnn_6m/upscaled_bicubicaly/finetuned_weights/2x/images/" --scale 2
+python test.py --weights-file "/home/.../.../outputs/x2/best.pth" --image-dir "/home/f.../6m_baseline/results_srcnn_6m/upscaled_bicubicaly/finetuned_weights/2x/images/" --scale 2
 ```
 
-
+In the example above, we have the following parameters:
+- `weights-file`: Path to the model weights file.
+- `image-dir`: Path to the directory containing bicubically upscaled images.
+- `scale`: The scale factor by which the images were upscaled.
