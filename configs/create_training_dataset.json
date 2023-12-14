@@ -1,0 +1,7 @@
+{
+    "original_images_dir": "/home/fatbardhf/data_code/data/A_20210707/png_lenscor/",
+    "scaling_factors": ["2x", "4x"],
+    "training_images_dir": "/home/fatbardhf/A_20210707_croped_test/",
+    "dataset_portion": 0.01,
+    "val_portion": 0.05
+}

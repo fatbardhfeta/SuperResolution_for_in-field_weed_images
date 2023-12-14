@@ -1,0 +1,29 @@
+{
+    
+  "scaling_factors": ["2x", "4x", "8x"], 
+  "valid_images_dir": "/home/fatbardhf/segm_validation_code_model/patches/valid_6m",
+  "results": [
+      {
+        "case_name": "Bicubical",
+        "case_path": "/home/fatbardhf/segmentation_evaluation_data_folder/6m_baseline/results_bicubical_6m"
+      },
+      {
+        "case_name": "Bilateral",
+        "case_path": "/home/fatbardhf/segmentation_evaluation_data_folder/6m_baseline/results_filtering_6m/bilateral_filter_6m"
+      },
+      {
+        "case_name": "Gaussian",
+        "case_path": "/home/fatbardhf/segmentation_evaluation_data_folder/6m_baseline/results_filtering_6m/gaussian_filter_6m"
+      },
+      {
+        "case_name": "Median",
+        "case_path": "/home/fatbardhf/segmentation_evaluation_data_folder/6m_baseline/results_filtering_6m/median_filter_6m"
+      },
+      {
+        "case_name": "Non-local Means",
+        "case_path": "/home/fatbardhf/segmentation_evaluation_data_folder/6m_baseline/results_filtering_6m/non_local_means_denoising_6m"
+      } 
+      
+    ],
+    "save_dir": "/home/fatbardhf/segmentation_evaluation_data_folder/6m_baseline/grid/6m_baseline/results_filtering_6m"
+  }

@@ -29,22 +29,22 @@ def predict(model, test_loader, device):
     model.eval()
     predictions_whole = None 
 	
-    for inputs, targets in tqdm(test_loader, total=len(test_loader)):
+    for inputs in tqdm(test_loader, total=len(test_loader)):
         with torch.no_grad():
-            predictions = predict_one_batch(model, inputs, targets, device)
+            predictions = predict_one_batch(model, inputs, device)
             if predictions_whole is None:
                 predictions_whole = predictions
             else:
                 predictions_whole = torch.cat((predictions_whole, predictions), dim=0)
     return predictions_whole
 
-def predict_one_batch(model, inputs, targets, device):
+def predict_one_batch(model, inputs, device):
     '''
     validates one batch
     '''
     with torch.cuda.amp.autocast():
         inputs = inputs.float().to(device=device)
-        targets = targets.long().to(device=device)
+        #targets = targets.long().to(device=device)
 
         predictions = model(inputs)
         probabilities = torch.sigmoid(predictions.squeeze(1))

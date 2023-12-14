@@ -1,0 +1,38 @@
+{
+    "model_suffix": "model_resnet34_run_99.h5",
+    "model_path": "/home/fatbardhf/SuperResolution_for_in-field_weed_images/model_weights/segmentation/model_resnet34_run_99.h5",
+    "batch_size": 300,
+    "device": "cuda",
+    "experiments": [
+        {
+            "experiment_name": "bicubical_1x-20x_resnet34",
+            "upscaled_images_path": "/home/fatbardhf/segmentation_evaluation_data_folder/results_bicubical",
+            "scaling_factors": ["1x", "2x", "4x", "6x", "8x", "10x", "12x", "14x", "16x", "18x", "20x" ]
+        },
+        {
+            "experiment_name": "HAT_default_weights_resnet34",
+            "upscaled_images_path": "/home/fatbardhf/segmentation_evaluation_data_folder/results_HAT/resultsPlate_HAT_default_weights",
+            "scaling_factors": ["1x", "2x", "4x" ]
+        },
+        {
+            "experiment_name": "HAT_small_finetuning_resnet34",
+            "upscaled_images_path": "/home/fatbardhf/segmentation_evaluation_data_folder/results_HAT/results_plate_HAT_retrained",
+            "scaling_factors": ["1x", "2x", "4x" ]
+        },
+        {
+            "experiment_name": "HAT_500k_iterations_resnet34",
+            "upscaled_images_path": "/home/fatbardhf/segmentation_evaluation_data_folder/results_HAT/results_HAT_500k_iterations",
+            "scaling_factors": ["1x", "2x", "4x" ]
+        },
+        {
+            "experiment_name": "real-esrgan-original_weights_1x-4x_resnet34",
+            "upscaled_images_path": "/home/fatbardhf/segmentation_evaluation_data_folder/6m_baseline/results_real-esrgan_6m/real-esrgan_original_weights",
+            "scaling_factors": ["1x", "2x", "4x"]
+        },
+        {
+            "experiment_name": "real-esrgan-finetuned_weights_1x-4x_resnet34",
+            "upscaled_images_path": "/home/fatbardhf/segmentation_evaluation_data_folder/6m_baseline/results_real-esrgan_6m/real-esrgan_finetuned",
+            "scaling_factors": ["1x", "2x", "4x"]
+        }
+    ]
+}

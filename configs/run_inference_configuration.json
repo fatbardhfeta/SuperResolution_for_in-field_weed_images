@@ -1,0 +1,48 @@
+{
+    "reports_dir": "/home/fatbardhf/SuperResolution_for_in-field_weed_images/reports",
+    "inference_cases": [
+        {
+            "inference_case_name":  "bicubical_1x-20x__resnet34",
+            "upscaled_images_path": "/home/fatbardhf/segmentation_evaluation_data_folder/results_bicubical",
+            "original_images_path": "/home/fatbardhf/segm_validation_code_model/patches/valid/images",
+            "masks_path":           "/home/fatbardhf/segm_validation_code_model/patches/valid/masks",
+            "scaling_factors":      ["1x", "2x", "4x", "6x", "8x", "10x", "12x", "14x", "16x", "18x", "20x" ]
+        },
+        {
+            "inference_case_name":  "HAT_500K-iterations_25k-images__resnet34",
+            "upscaled_images_path": "/home/fatbardhf/segmentation_evaluation_data_folder/results_HAT/results_HAT_500k_iterations",
+            "original_images_path": "/home/fatbardhf/segm_validation_code_model/patches/valid/images",
+            "masks_path":           "/home/fatbardhf/segm_validation_code_model/patches/valid/masks",
+            "scaling_factors":      ["1x", "2x", "4x" ]
+        },
+        {
+            "inference_case_name":  "HAT_default_weights__resnet34",
+            "upscaled_images_path": "/home/fatbardhf/segmentation_evaluation_data_folder/results_HAT/resultsPlate_HAT_default_weights",
+            "original_images_path": "/home/fatbardhf/segm_validation_code_model/patches/valid/images",
+            "masks_path":           "/home/fatbardhf/segm_validation_code_model/patches/valid/masks",
+            "scaling_factors":      ["1x", "2x", "4x" ]
+        },
+        {
+            "inference_case_name":  "HAT_small_finetuning__resnet34",
+            "upscaled_images_path": "/home/fatbardhf/segmentation_evaluation_data_folder/results_HAT/results_plate_HAT_retrained",
+            "original_images_path": "/home/fatbardhf/segm_validation_code_model/patches/valid/images",
+            "masks_path":           "/home/fatbardhf/segm_validation_code_model/patches/valid/masks",
+            "scaling_factors":      ["1x", "2x", "4x" ]
+        },
+        {
+            "inference_case_name":  "6m_real-esrgan/original_weights_1x-4x_resnet34",
+            "upscaled_images_path": "/home/fatbardhf/segmentation_evaluation_data_folder/6m_baseline/results_real-esrgan_6m/real-esrgan_original_weights",
+            "original_images_path": "/home/fatbardhf/segm_validation_code_model/patches/valid_6m/images",
+            "masks_path":           "/home/fatbardhf/segm_validation_code_model/patches/valid_6m/masks",
+            "scaling_factors":      ["1x", "2x", "4x", "8x"]
+        },
+        {
+            "inference_case_name":  "6m_real-esrgan/finetuned_weights_1x-4x_resnet34",
+            "upscaled_images_path": "/home/fatbardhf/segmentation_evaluation_data_folder/6m_baseline/results_real-esrgan_6m/real-esrgan_finetuned",
+            "original_images_path": "/home/fatbardhf/segm_validation_code_model/patches/valid_6m/images",
+            "masks_path":           "/home/fatbardhf/segm_validation_code_model/patches/valid_6m/masks",
+            "scaling_factors":      ["1x", "2x", "4x", "8x" ]
+        }
+
+    ]
+}

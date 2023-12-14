@@ -1,0 +1,21 @@
+{
+    "subdirs": ["2x", "4x", "8x"], 
+    "results": [
+        {
+            "filter_name": "median",
+            "images_path": "/home/fatbardhf/segmentation_evaluation_data_folder/6m_baseline/results_non_nn_6m/bilateral_filter_6m"
+        },
+        {
+            "filter_name": "gaussian",
+            "images_path": "/home/fatbardhf/segmentation_evaluation_data_folder/6m_baseline/results_non_nn_6m/gaussian_filter_6m"
+        },
+        {
+            "filter_name": "bilateral",
+            "images_path": "/home/fatbardhf/segmentation_evaluation_data_folder/6m_baseline/results_non_nn_6m/median_filter_6m"
+        },
+        {
+            "filter_name": "non-local_means",
+            "images_path": "/home/fatbardhf/segmentation_evaluation_data_folder/6m_baseline/results_non_nn_6m/non_local_means_denoising_6m"
+        }
+      ]
+}

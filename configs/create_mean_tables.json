@@ -1,0 +1,13 @@
+{
+    "Bicubical" :                   "/home/fatbardhf/SuperResolution_for_in-field_weed_images/reports/6m-bicubical_1x-8x_resnet34",
+    "SRCNN":                        "/home/fatbardhf/SuperResolution_for_in-field_weed_images/reports/6m-srcnn_default_weights_resnet34",
+    "SRCNN_finetuned":              "/home/fatbardhf/SuperResolution_for_in-field_weed_images/reports/6m-srcnn_finetuned_weights_resnet34",
+    "Real-ESRGAN":                  "/home/fatbardhf/SuperResolution_for_in-field_weed_images/reports/6m_real-esrgan/original_weights_1x-4x_resnet34",
+    "Real-ESRGAN_finetuned":        "/home/fatbardhf/SuperResolution_for_in-field_weed_images/reports/6m_real-esrgan/finetuned_weights_1x-4x_resnet34",
+    "HAT":                          "/home/fatbardhf/SuperResolution_for_in-field_weed_images/reports/6m-HAT_default_weights_resnet34",
+    "HAT_finetuned":                "/home/fatbardhf/SuperResolution_for_in-field_weed_images/reports/6m-HAT_500K-8x_resnet34",
+    "Filtering_Bilateral":          "/home/fatbardhf/SuperResolution_for_in-field_weed_images/reports/6m_filtering/bilateral_1x-8x_resnet34",
+    "Filtering_Gaussian":           "/home/fatbardhf/SuperResolution_for_in-field_weed_images/reports/6m_filtering/gaussian_1x-8x_resnet34",
+    "Filtering_Median":             "/home/fatbardhf/SuperResolution_for_in-field_weed_images/reports/6m_filtering/median_1x-8x_resnet34",
+    "Filtering_Non-local_means":    "/home/fatbardhf/SuperResolution_for_in-field_weed_images/reports/6m_filtering/non-local_means_1x-8x_resnet34"
+}

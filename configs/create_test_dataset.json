@@ -1,0 +1,6 @@
+{
+    "type": "downscale&upscale",
+    "original_test_images_dir": "/home/fatbardhf/segm_validation_code_model/patches/valid_6m/images",
+    "scaling_factors": ["1x", "2x", "4x", "8x", "16x"],
+    "new_test_images_dir": "/home/fatbardhf/segmentation_evaluation_data_folder/6m_baseline/results_bicubicaly"
+}
